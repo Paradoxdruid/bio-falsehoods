@@ -1,12 +1,19 @@
 """App to dispell common biology falsehoods."""
-from csv import reader
 from random import choice
+from typing import List
 
 import dash
 import dash_bootstrap_components as dbc
 from dash import Input, Output, State, html
 
-from bio_falsehoods.layout import FOOTER, PADDING, THEME, Falsehood, generate_card
+from bio_falsehoods.layout import (
+    FOOTER,
+    PADDING,
+    THEME,
+    Falsehood,
+    generate_card,
+    read_falsehoods_from_json,
+)
 
 # ----------------- Initialize App --------------------------
 
@@ -16,9 +23,7 @@ server = app.server
 
 # ---------------- Load Falsehood data ----------------------
 
-with open("./assets/misconceptions.csv") as csvfile:
-    false_reader = reader(csvfile)
-    falsehoods = [Falsehood(row[0], row[1], row[2]) for row in false_reader]
+falsehoods: List[Falsehood] = read_falsehoods_from_json("./assets/misconceptions.json")
 
 # ----------------- Layout ----------------------------------
 
@@ -47,12 +52,10 @@ modal = html.Div(
 
 navbar = dbc.NavbarSimple(
     children=[
-        # # dbc.NavItem(dbc.NavLink("Page 1", href="#")),
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("More", header=True),
                 dbc.DropdownMenuItem("About", id="dropdown-button", n_clicks=0),
-                # dbc.DropdownMenuItem("Action 2", href="#"),
             ],
             nav=True,
             in_navbar=True,

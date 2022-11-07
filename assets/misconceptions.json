@@ -1,0 +1,81 @@
+{
+  "title": "bio-falsehoods",
+  "contents": [
+    {
+      "title": "Different portions of the Tongue specialize in sensing different flavors/tastes",
+      "text": "Taste receptors for all tastes are fairly evenly distributed across the tongue.  This misconception stems for a mistranslation of a 1901 German thesis.  Also, there are 5 primary tastes: sweet, sour, salty, bitter, and umami/savory.",
+      "links": [
+        {
+          "link_title": "The cells and logic for mammalian sour taste detection",
+          "link_url": "http://dx.doi.org/10.1038/nature05084"
+        },
+        {
+          "link_title": "Wikipedia: Tongue Map",
+          "link_url": "https://en.wikipedia.org/wiki/Tongue_map"
+        }
+      ]
+    },
+    {
+      "title": "Human beings only use 10% of their brain",
+      "text": "Human beings utilize their entire brain, although different areas are active during different processes.",
+      "links": [
+        {
+          "link_title": "Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging",
+          "link_url": "https://www.nature.com/articles/nrn2201"
+        },
+        {
+          "link_title": "Wikipedia: Ten percent of brain myth",
+          "link_url": "https://en.wikipedia.org/wiki/Ten_percent_of_the_brain_myth"
+        }
+      ]
+    },
+    {
+      "title": "Humans are the most evolved species or evolution leads to more complex species",
+      "text": "Evolution is not a progression from inferior to superior, or simple to complex.  Similarly, we are not evolved from monkeys or more evolved than monkeys.  Monkeys and mankind descend from a common ancestor.",
+      "links": [
+        {
+          "link_title": "Microbial Minimalism: Genome Reduction in Bacterial Pathogens",
+          "link_url": "https://www.sciencedirect.com/science/article/pii/S0092867402006657"
+        },
+        {
+          "link_title": "Wikipedia: Evolution of biological complexity",
+          "link_url": "https://en.wikipedia.org/wiki/Evolution_of_biological_complexity"
+        }
+      ]
+    },
+    {
+      "title": "Sugar levels cause hyperactivity, especially in children",
+      "text": "Interest and activity level can result in childhood hyperactivity and listlessness; sugar has nothing to do with it.",
+      "links": [
+        {
+          "link_title": "The Effect of Sugar on Behavior or Cognition in Children",
+          "link_url": "https://jamanetwork.com/journals/jama/article-abstract/391812"
+        }
+      ]
+    },
+    {
+      "title": "Women are born with all the eggs they will ever have",
+      "text": "Women generate new eggs throughout their entire life until menopause.",
+      "links": [
+        {
+          "link_title": "Oocyte formation by mitotically active germ cells purified from ovaries of reproductive-age women",
+          "link_url": "https://www.nature.com/articles/nm.2669"
+        }
+      ]
+    },
+    {
+      "title": "Consuming antioxidants is an effective way to fight aging, or, more generally, that consumption of increased antioxidants has any health benefit",
+      "text": "Since the proposal of the free radical theory of aging in the 1950s, numerous large and rigorous studies have found no evidence that free radicals are responsible for aging, and in fact, increased antioxidant consumption can have serious negative consequences.",
+      "links": [
+        {
+          "link_title": "When a theory of aging ages badly",
+          "link_url": "https://pubmed.ncbi.nlm.nih.gov/19730800/"
+        },
+        {
+          "link_title": "Mortality in randomized trials of antioxidant supplements for primary and secondary prevention: systematic review and meta-analysis",
+          "link_url": "https://pubmed.ncbi.nlm.nih.gov/17327526/"
+        }
+      ]
+    }
+  ]
+}

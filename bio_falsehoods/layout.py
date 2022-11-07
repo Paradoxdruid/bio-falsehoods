@@ -1,17 +1,19 @@
 """Layout elements for bio_falsehoods"""
+import json
 from dataclasses import dataclass
+from typing import Dict, List
 
 import dash_bootstrap_components as dbc
 from dash import html
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class Falsehood:
     """A bio-Falsehood"""
 
     title: str
     text: str
-    ref: str
+    ref: List[Dict[str, str]]
 
 
 THEME = dbc.themes.MORPH
@@ -20,12 +22,10 @@ PADDING = "py-3"
 
 NAVBAR = dbc.NavbarSimple(
     children=[
-        # # dbc.NavItem(dbc.NavLink("Page 1", href="#")),
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("More", header=True),
                 dbc.DropdownMenuItem("About", id="dropdown-button", n_clicks=0),
-                # dbc.DropdownMenuItem("Action 2", href="#"),
             ],
             nav=True,
             in_navbar=True,
@@ -82,15 +82,35 @@ def generate_card(falsey: Falsehood) -> dbc.Col:
         dbc.Col: column contaning a styled bootstrap card
     """
 
+    links = [
+        dbc.ListGroupItem(each.get("link_title"), href=each.get("link_url"))
+        for each in falsey.ref
+    ]
+
     return dbc.Col(
         dbc.Card(
             dbc.CardBody(
                 children=[
-                    html.H4(falsey.title, className="card-title"),
-                    html.P(falsey.text, className="card-text"),
-                    dbc.CardLink("Scientific Reference", href=falsey.ref),
+                    html.H4(f"Myth: {falsey.title}", className="card-title"),
+                    html.P(f"Reality: {falsey.text}", className="card-text"),
+                    html.H5("Scientific References:"),
+                    dbc.ListGroup(
+                        children=links,
+                    ),
                 ]
             )
         ),
         width={"offset": 2, "size": 6},
     )
+
+
+def read_falsehoods_from_json(json_file: str) -> List[Falsehood]:
+    with open(json_file) as jfile:
+        out = json.load(jfile)
+
+    falsehoods: List[Falsehood] = [
+        Falsehood(title=each.get("title"), text=each.get("text"), ref=each.get("links"))
+        for each in out.get("contents")
+    ]
+
+    return falsehoods
