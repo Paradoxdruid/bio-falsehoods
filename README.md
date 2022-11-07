@@ -4,7 +4,7 @@
 
 **bio-falsehoods** is an interactive web frontend to dispel common biology and biochemistry falsehoods circulated as fact.
 
-This software is a work in progress.
+This software is a work in progress, but try it live at [http://bio-falsehoods.bonhamcode.com/](http://bio-falsehoods.bonhamcode.com/)
 
 ## Screenshot
 
