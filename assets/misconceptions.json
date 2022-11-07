@@ -76,6 +76,54 @@
           "link_url": "https://pubmed.ncbi.nlm.nih.gov/17327526/"
         }
       ]
+    },
+    {
+      "title": "Vaccines have been linked to Autism",
+      "text": "This 'connection' is the result of a single, discredited and retracted study by a doctor who wanted to sell alternatives to vaccines.",
+      "links": [
+        {
+          "link_title": "Harms of Hedging in Scientific Discourse: Andrew Wakefield and the Origins of the Autism Vaccine Controversy",
+          "link_url": "https://www.tandfonline.com/doi/full/10.1080/10572252.2013.816487"
+        },
+        {
+          "link_title": "The Vaccine-Autism Connection: A Public Health Crisis Caused by Unethical Medical Practices and Fraudulent Science",
+          "link_url": "https://journals.sagepub.com/doi/abs/10.1345/aph.1Q318"
+        }
+      ]
+    },
+    {
+      "title": "MSG is dangerous or induces headaches",
+      "text": "MSG is a natural amino acid necessary for the body, and is one of the primary tastes our tongue has evolved to perceive.  Despite repeated study, no evidence for MSG induced illness has been found.",
+      "links": [
+        {
+          "link_title": "Monosodium L-glutamate: A double-blind study and review",
+          "link_url": "https://www.sciencedirect.com/science/article/pii/027869159390012N"
+        },
+        {
+          "link_title": "Reconsidering the effects of monosodium glutamate: A literature review",
+          "link_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1745-7599.2006.00160.x"
+        }
+      ]
+    },
+    {
+      "title": "Spinach is loaded with iron",
+      "text": "This is thanks to a very old misprint in an analysis of the nutritional content of spinach. Spinach contains less iron than many beans, and the iron is in a context that is difficult for humans to absorb.",
+      "links": [
+        {
+          "link_title": "Spinach in Blunderland: How the myth that spinach is rich in iron became an urban academic legend",
+          "link_url": "https://repository.rothamsted.ac.uk/item/8wq15/spinach-in-blunderland-how-the-myth-that-spinach-is-rich-in-iron-became-an-urban-academic-legend"
+        }
+      ]
+    },
+    {
+      "title": "Vitamin C can prevent colds",
+      "text": "The vast majority of humans do not have a vitamin C deficiency, and the benefits of excess vitamin C intake are unclear.  In particular, there is no evidence that vitamin C supplementation will prevent the common cold.",
+      "links": [
+        {
+          "link_title": "Vitamin C for preventing and treating the common cold",
+          "link_url": "https://doi.org/10.1002/14651858.CD000980.pub4"
+        }
+      ]
     }
   ]
 }
