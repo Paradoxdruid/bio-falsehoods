@@ -50,6 +50,14 @@ def generate_card(falsey: Falsehood) -> dbc.Col:
 
 
 def read_falsehoods_from_json(json_file: str) -> List[Falsehood]:
+    """Read a json file to generate a list of Falsehoods
+
+    Args:
+        json_file (str): json filename
+
+    Returns:
+        List[Falsehood]: list of Falsehoods
+    """
     with open(json_file) as jfile:
         out = json.load(jfile)
 
