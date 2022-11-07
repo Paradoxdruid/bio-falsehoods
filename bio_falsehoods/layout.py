@@ -7,36 +7,35 @@ from dash import html
 
 @dataclass(frozen=True, slots=True)
 class Falsehood:
+    """A bio-Falsehood"""
+
     title: str
     text: str
     ref: str
 
 
-TITLE = html.H4("Bio-Falsehoodsb")
-
-THEME = dbc.themes.QUARTZ
+THEME = dbc.themes.MORPH
 
 PADDING = "py-3"
 
 NAVBAR = dbc.NavbarSimple(
     children=[
-        # dbc.NavItem(dbc.NavLink("Page 1", href="#")),
+        # # dbc.NavItem(dbc.NavLink("Page 1", href="#")),
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("Actions", header=True),
-                dbc.DropdownMenuItem("Action 1", href="#"),
-                dbc.DropdownMenuItem("Action 2", href="#"),
+                dbc.DropdownMenuItem("More", header=True),
+                dbc.DropdownMenuItem("About", id="dropdown-button", n_clicks=0),
+                # dbc.DropdownMenuItem("Action 2", href="#"),
             ],
             nav=True,
             in_navbar=True,
-            label="Actions",
+            label="More",
         ),
     ],
     brand="Bio-Falsehoods",
     brand_href="#",
     color="primary",
     dark=True,
-    # fluid=True,
     class_name="pb-3 rounded",
 )
 
@@ -74,6 +73,14 @@ FOOTER = dbc.Row(
 
 
 def generate_card(falsey: Falsehood) -> dbc.Col:
+    """Generate a bootstrap card for a Falsehood.
+
+    Args:
+        falsey (Falsehood): a bio Falsehood
+
+    Returns:
+        dbc.Col: column contaning a styled bootstrap card
+    """
 
     return dbc.Col(
         dbc.Card(
@@ -81,7 +88,7 @@ def generate_card(falsey: Falsehood) -> dbc.Col:
                 children=[
                     html.H4(falsey.title, className="card-title"),
                     html.P(falsey.text, className="card-text"),
-                    dbc.CardLink("Reference", href=falsey.ref),
+                    dbc.CardLink("Scientific Reference", href=falsey.ref),
                 ]
             )
         ),

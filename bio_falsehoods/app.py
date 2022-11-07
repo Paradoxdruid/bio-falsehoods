@@ -1,18 +1,12 @@
 """App to dispell common biology falsehoods."""
+from csv import reader
 from random import choice
 
 import dash
 import dash_bootstrap_components as dbc
-from dash import Input, Output
+from dash import Input, Output, State, html
 
-from bio_falsehoods.layout import (
-    FOOTER,
-    NAVBAR,
-    PADDING,
-    THEME,
-    Falsehood,
-    generate_card,
-)
+from bio_falsehoods.layout import FOOTER, PADDING, THEME, Falsehood, generate_card
 
 # ----------------- Initialize App --------------------------
 
@@ -20,36 +14,77 @@ app = dash.Dash(__name__, external_stylesheets=[THEME])
 app.title = "Bio-Falsehoods"
 server = app.server
 
-# ---------------- Helper Functions --------------------------
+# ---------------- Load Falsehood data ----------------------
 
-falsehoods = [
-    Falsehood("test 1", "test text", "test link"),
-    Falsehood("test 2", "test text", "test link"),
-    Falsehood("test 3", "test text", "test link"),
-    Falsehood("test 4", "test text", "test link"),
-    Falsehood("test 5", "test text", "test link"),
-]
+with open("./assets/misconceptions.csv") as csvfile:
+    false_reader = reader(csvfile)
+    falsehoods = [Falsehood(row[0], row[1], row[2]) for row in false_reader]
 
-# ----------------- Main layout -----------------------------
+# ----------------- Layout ----------------------------------
+
+modal = html.Div(
+    [
+        dbc.Modal(
+            [
+                dbc.ModalHeader(dbc.ModalTitle("About")),
+                dbc.ModalBody(
+                    (
+                        "A list of common misconceptions and falsehoods about biology, "
+                        "compiled by Dr. Andrew J. Bonham"
+                    )
+                ),
+                dbc.ModalFooter(
+                    dbc.Button(
+                        "Close", id="close-button", className="ms-auto", n_clicks=0
+                    )
+                ),
+            ],
+            id="modal",
+            is_open=False,
+        ),
+    ]
+)
+
+navbar = dbc.NavbarSimple(
+    children=[
+        # # dbc.NavItem(dbc.NavLink("Page 1", href="#")),
+        dbc.DropdownMenu(
+            children=[
+                dbc.DropdownMenuItem("More", header=True),
+                dbc.DropdownMenuItem("About", id="dropdown-button", n_clicks=0),
+                # dbc.DropdownMenuItem("Action 2", href="#"),
+            ],
+            nav=True,
+            in_navbar=True,
+            label="More",
+        ),
+    ],
+    brand="Bio-Falsehoods",
+    brand_href="#",
+    color="primary",
+    dark=True,
+    class_name="pb-3 rounded",
+)
 
 app.layout = dbc.Container(
     fluid=True,
     children=[
-        dbc.Row(dbc.Col(NAVBAR, width={"offset": 2, "size": 6}), class_name="pt-3"),
+        modal,
+        dbc.Row(dbc.Col(navbar, width={"offset": 2, "size": 6}), class_name="pt-3"),
+        dbc.Row(id="output-div"),
         dbc.Row(
             dbc.Col(
                 dbc.Button(
                     "Show me another",
                     color="primary",
                     id="submit-button",
-                    class_name="me-1",
+                    class_name="me-1 btn",
                     n_clicks=0,
                 ),
                 width={"offset": 2, "size": 6},
             ),
             class_name=PADDING,
         ),
-        dbc.Row(id="output-div"),
         dbc.Row(
             dbc.Col(dbc.CardFooter(FOOTER), width={"offset": 2, "size": 6}),
             class_name=PADDING,
@@ -64,8 +99,19 @@ app.layout = dbc.Container(
     Output(component_id="output-div", component_property="children"),
     [Input("submit-button", "n_clicks")],
 )  # type: ignore[misc]
-def generate_graphs(_: int) -> dbc.Row:
+def generate_cards(_: int) -> dbc.Row:
 
     falsey = choice(falsehoods)
 
     return generate_card(falsey)
+
+
+@app.callback(
+    Output("modal", "is_open"),
+    [Input("dropdown-button", "n_clicks"), Input("close-button", "n_clicks")],
+    [State("modal", "is_open")],
+)  # type: ignore[misc]
+def toggle_modal(n1: int, n2: int, is_open: bool) -> bool:
+    if n1 or n2:
+        return not is_open
+    return is_open
