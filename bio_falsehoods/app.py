@@ -7,7 +7,7 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import Input, Output, State
 
-from bio_falsehoods.layout import FOOTER, MODAL, NAVBAR, PADDING, THEME, WIDTH
+from bio_falsehoods.layout import FOOTER, MODAL, NAVBAR, PADDING, THEME
 from bio_falsehoods.utils import Falsehood, generate_card, read_falsehoods_from_json
 
 # ----------------- Initialize App --------------------------
@@ -24,28 +24,37 @@ falsehoods: List[Falsehood] = read_falsehoods_from_json("./assets/misconceptions
 
 app.layout = dbc.Container(
     fluid=True,
-    children=[
-        MODAL,
-        dbc.Row(dbc.Col(NAVBAR, width=WIDTH), class_name="pt-3"),
-        dbc.Row(id="output-div"),
-        dbc.Row(
-            dbc.Col(
-                dbc.Button(
-                    "Show me another",
-                    color="primary",
-                    id="submit-button",
-                    class_name="me-1 btn",
-                    n_clicks=0,
+    children=dbc.Row(
+        dbc.Col(
+            children=[
+                MODAL,
+                dbc.Row(dbc.Col(NAVBAR), class_name="pt-3"),
+                dbc.Row(id="output-div"),
+                dbc.Row(
+                    dbc.Col(
+                        dbc.Button(
+                            "Show me another",
+                            color="primary",
+                            id="submit-button",
+                            class_name="me-1 btn",
+                            n_clicks=0,
+                        ),
+                    ),
+                    class_name=PADDING,
                 ),
-                width=WIDTH,
-            ),
-            class_name=PADDING,
+                dbc.Row(
+                    dbc.Col(FOOTER),
+                    class_name=PADDING,
+                ),
+            ],
+            xs={"size": 12},
+            sm={"size": 10},
+            md={"size": 8},
+            lg={"size": 6},
         ),
-        dbc.Row(
-            dbc.Col(FOOTER, width=WIDTH),
-            class_name=PADDING,
-        ),
-    ],
+        justify="center",
+    ),
+    style={"min-height": "100vh"},  # fill the whole background
 )
 
 # ------------------ Callbacks -----------------------------------------

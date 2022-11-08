@@ -45,7 +45,6 @@ def generate_card(falsey: Falsehood) -> dbc.Col:
                 ]
             )
         ),
-        width={"offset": 2, "size": 6},
     )
 
 

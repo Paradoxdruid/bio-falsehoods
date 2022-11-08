@@ -7,8 +7,6 @@ THEME = dbc.themes.MORPH
 
 PADDING = "py-3"
 
-WIDTH = {"offset": 2, "size": 6}
-
 NAVBAR = dbc.NavbarSimple(
     children=[
         dbc.DropdownMenu(
@@ -84,23 +82,4 @@ MODAL = html.Div(
             is_open=False,
         ),
     ]
-)
-
-NAVBAR = dbc.NavbarSimple(
-    children=[
-        dbc.DropdownMenu(
-            children=[
-                dbc.DropdownMenuItem("More", header=True),
-                dbc.DropdownMenuItem("About", id="dropdown-button", n_clicks=0),
-            ],
-            nav=True,
-            in_navbar=True,
-            label="More",
-        ),
-    ],
-    brand="Bio-Falsehoods",
-    brand_href="#",
-    color="primary",
-    dark=True,
-    class_name="pb-3 rounded",
 )
