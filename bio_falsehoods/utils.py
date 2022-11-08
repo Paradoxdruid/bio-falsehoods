@@ -2,10 +2,18 @@
 
 import json
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import List
 
 import dash_bootstrap_components as dbc
 from dash import html
+
+
+@dataclass(frozen=True)
+class Falsehood_Link:
+    """A reference link for a Falsehood"""
+
+    title: str
+    url: str
 
 
 @dataclass(frozen=True)
@@ -14,7 +22,7 @@ class Falsehood:
 
     title: str
     text: str
-    ref: List[Dict[str, str]]
+    ref: List[Falsehood_Link]
 
 
 def generate_card(falsey: Falsehood) -> dbc.Col:
@@ -27,10 +35,7 @@ def generate_card(falsey: Falsehood) -> dbc.Col:
         dbc.Col: column contaning a styled bootstrap card
     """
 
-    links = [
-        dbc.ListGroupItem(each.get("link_title"), href=each.get("link_url"))
-        for each in falsey.ref
-    ]
+    links = [dbc.ListGroupItem(each.title, href=each.url) for each in falsey.ref]
 
     return dbc.Col(
         dbc.Card(
@@ -61,7 +66,14 @@ def read_falsehoods_from_json(json_file: str) -> List[Falsehood]:
         out = json.load(jfile)
 
     falsehoods: List[Falsehood] = [
-        Falsehood(title=each.get("title"), text=each.get("text"), ref=each.get("links"))
+        Falsehood(
+            title=each.get("title"),
+            text=each.get("text"),
+            ref=[
+                Falsehood_Link(title=sub.get("link_title"), url=sub.get("link_url"))
+                for sub in each.get("links")
+            ],
+        )
         for each in out.get("contents")
     ]
 
