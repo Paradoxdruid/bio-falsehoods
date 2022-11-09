@@ -46,11 +46,17 @@ app.layout = dash.page_container
 
 @app.callback(
     Output(component_id="submit-button", component_property="href"),
-    [Input("submit-button", "n_clicks")],
+    [Input("submit-button", "n_clicks"), State("nav_bar", "brand")],
 )  # type: ignore[misc]
-def update_link(_: int) -> str:
+def update_link(_: int, brand: str) -> str:
 
-    return f"{choice(paths)}"
+    false_number = f"/{brand[17:]}"
+    while True:
+        my_choice = choice(paths)
+        if my_choice != false_number:
+            break
+
+    return f"{my_choice}"
 
 
 @app.callback(

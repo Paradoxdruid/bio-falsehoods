@@ -43,6 +43,7 @@ def generate_layout(falsey: Falsehood) -> dbc.Container:
     navbar = dbc.Row(
         dbc.Col(
             dbc.NavbarSimple(
+                id="nav_bar",
                 children=[
                     dbc.DropdownMenu(
                         children=[
