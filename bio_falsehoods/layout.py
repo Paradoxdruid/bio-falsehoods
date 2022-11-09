@@ -9,30 +9,6 @@ SIZING = {"xs": {"size": 12}, "sm": {"size": 10}, "md": {"size": 8}, "lg": {"siz
 
 PADDING = "py-3"
 
-NAVBAR = dbc.Row(
-    dbc.Col(
-        dbc.NavbarSimple(
-            children=[
-                dbc.DropdownMenu(
-                    children=[
-                        dbc.DropdownMenuItem("More", header=True),
-                        dbc.DropdownMenuItem("About", id="dropdown-button", n_clicks=0),
-                    ],
-                    nav=True,
-                    in_navbar=True,
-                    label="More",
-                ),
-            ],
-            brand="Bio-Falsehoods",
-            brand_href="#",
-            color="primary",
-            dark=True,
-            class_name="pb-3 rounded",
-        )
-    ),
-    class_name="pt-3",
-)
-
 FOOTER = dbc.Row(
     dbc.Col(
         dbc.CardFooter(

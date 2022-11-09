@@ -2,6 +2,7 @@
   "title": "bio-falsehoods",
   "contents": [
     {
+      "id": 1,
       "title": "Different portions of the Tongue specialize in sensing different flavors/tastes",
       "text": "Taste receptors for all tastes are fairly evenly distributed across the tongue.  This misconception stems for a mistranslation of a 1901 German thesis.  Also, there are 5 primary tastes: sweet, sour, salty, bitter, and umami/savory.",
       "links": [
@@ -16,6 +17,7 @@
       ]
     },
     {
+      "id": 2,
       "title": "Human beings only use 10% of their brain",
       "text": "Human beings utilize their entire brain, although different areas are active during different processes.",
       "links": [
@@ -30,6 +32,7 @@
       ]
     },
     {
+      "id": 3,
       "title": "Humans are the most evolved species or evolution leads to more complex species",
       "text": "Evolution is not a progression from inferior to superior, or simple to complex.  Similarly, we are not evolved from monkeys or more evolved than monkeys.  Monkeys and mankind descend from a common ancestor.",
       "links": [
@@ -44,6 +47,7 @@
       ]
     },
     {
+      "id": 4,
       "title": "Sugar levels cause hyperactivity, especially in children",
       "text": "Interest and activity level can result in childhood hyperactivity and listlessness; sugar has nothing to do with it.",
       "links": [
@@ -54,6 +58,7 @@
       ]
     },
     {
+      "id": 5,
       "title": "Women are born with all the eggs they will ever have",
       "text": "Women generate new eggs throughout their entire life until menopause.",
       "links": [
@@ -64,6 +69,7 @@
       ]
     },
     {
+      "id": 6,
       "title": "Consuming antioxidants is an effective way to fight aging, or, more generally, that consumption of increased antioxidants has any health benefit",
       "text": "Since the proposal of the free radical theory of aging in the 1950s, numerous large and rigorous studies have found no evidence that free radicals are responsible for aging, and in fact, increased antioxidant consumption can have serious negative consequences.",
       "links": [
@@ -78,6 +84,7 @@
       ]
     },
     {
+      "id": 7,
       "title": "Vaccines have been linked to Autism",
       "text": "This 'connection' is the result of a single, discredited and retracted study by a doctor who wanted to sell alternatives to vaccines.",
       "links": [
@@ -92,6 +99,7 @@
       ]
     },
     {
+      "id": 8,
       "title": "MSG is dangerous or induces headaches",
       "text": "MSG is a natural amino acid necessary for the body, and is one of the primary tastes our tongue has evolved to perceive.  Despite repeated study, no evidence for MSG induced illness has been found.",
       "links": [
@@ -106,6 +114,7 @@
       ]
     },
     {
+      "id": 9,
       "title": "Spinach is loaded with iron",
       "text": "This is thanks to a very old misprint in an analysis of the nutritional content of spinach. Spinach contains less iron than many beans, and the iron is in a context that is difficult for humans to absorb.",
       "links": [
@@ -116,6 +125,7 @@
       ]
     },
     {
+      "id": 10,
       "title": "Vitamin C can prevent colds",
       "text": "The vast majority of humans do not have a vitamin C deficiency, and the benefits of excess vitamin C intake are unclear.  In particular, there is no evidence that vitamin C supplementation will prevent the common cold.",
       "links": [

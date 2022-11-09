@@ -1,68 +1,56 @@
 """App to dispel common biology falsehoods."""
 
 from random import choice
-from typing import List
+from typing import Dict
 
 import dash
-import dash_bootstrap_components as dbc
-from dash import Input, Output, State
+from dash import Input, Output, State, dcc
 
-from bio_falsehoods.layout import FOOTER, MODAL, NAVBAR, PADDING, THEME, SIZING
-from bio_falsehoods.utils import Falsehood, generate_card, read_falsehoods_from_json
+from bio_falsehoods.layout import THEME
+from bio_falsehoods.utils import Falsehood, generate_layout, read_falsehoods_from_json
 
 # ----------------- Initialize App --------------------------
 
-app = dash.Dash(__name__, external_stylesheets=[THEME])
+app = dash.Dash(__name__, external_stylesheets=[THEME], use_pages=True, pages_folder="")
 app.title = "Bio-Falsehoods"
 server = app.server
 
 # ---------------- Load Falsehood data ----------------------
 
-falsehoods: List[Falsehood] = read_falsehoods_from_json("./assets/misconceptions.json")
+falsehoods: Dict[int, Falsehood] = read_falsehoods_from_json(
+    "./assets/misconceptions.json"
+)
+
+layout_dict = {k: generate_layout(v) for k, v in falsehoods.items()}
+
+# ----------------- Page Registry ---------------------------
+
+for k, v in layout_dict.items():
+    dash.register_page(f"Bio-Falsehoods: {k}", path=f"/{k}", layout=v)
+
+paths = [page["relative_path"] for page in dash.page_registry.values()]
+
+dash.register_page(
+    "Bio-Falsehoods",
+    path="/",
+    layout=dcc.Location(id="page_ref", href=f"{choice(paths)}", refresh=True),
+)  # redirect to entry on initial page load
+# TODO: Can we avoid the initial refresh?
 
 # ----------------- Layout ----------------------------------
 
-app.layout = dbc.Container(
-    fluid=True,
-    children=dbc.Row(
-        dbc.Col(
-            children=[
-                MODAL,
-                NAVBAR,
-                dbc.Row(id="output-div"),
-                dbc.Row(
-                    dbc.Col(
-                        dbc.Button(
-                            "Show me another",
-                            color="primary",
-                            id="submit-button",
-                            class_name="me-1 btn",
-                            n_clicks=0,
-                        ),
-                    ),
-                    class_name=PADDING,
-                ),
-                FOOTER,
-            ],
-            **SIZING
-        ),
-        justify="center",
-    ),
-    style={"min-height": "100vh"},  # fill the whole background
-)
+app.layout = dash.page_container
 
-# ------------------ Callbacks -----------------------------------------
+# ------------------ Callbacks ------------------------------
 
 
 @app.callback(
-    Output(component_id="output-div", component_property="children"),
+    Output(component_id="submit-button", component_property="href"),
     [Input("submit-button", "n_clicks")],
 )  # type: ignore[misc]
-def generate_cards(_: int) -> dbc.Row:
+def update_link(_: int) -> str:
 
-    falsey = choice(falsehoods)
-
-    return generate_card(falsey)
+    return f"{choice(paths)}"
 
 
 @app.callback(
