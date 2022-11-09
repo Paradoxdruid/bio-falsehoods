@@ -118,7 +118,7 @@ def read_falsehoods_from_json(json_file: str) -> Dict[int, Falsehood]:
         json_file (str): json filename
 
     Returns:
-        List[Falsehood]: list of Falsehoods
+        Dict[int, Falsehood]: Dict of Falsehoods by id
     """
     with open(json_file) as jfile:
         out = json.load(jfile)
