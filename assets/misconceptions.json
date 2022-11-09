@@ -134,6 +134,36 @@
           "link_url": "https://doi.org/10.1002/14651858.CD000980.pub4"
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Coffee or other caffeinated beverages can dehydrate you",
+      "text": "The average cup of coffee is approximately 99% water, and any possible dehydrating effects from caffeine are far outweighed by the hydration content of the water itself.",
+      "links": [
+        {
+          "link_title": "No Evidence of Dehydration with Moderate Daily Coffee Intake: A Counterbalanced Cross-Over Study in a Free-Living Population",
+          "link_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3886980/"
+        },
+        {
+          "link_title": "A randomized trial to assess the potential of different beverages to affect hydration status: development of a beverage hydration index",
+          "link_url": "https://academic.oup.com/ajcn/article/103/3/717/4564598"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Nuts, corn, or popcorn can increase the risk of diverticulitis",
+      "text": "Although long associated with diverticulitis, studies have found no link between consumption of these foods and diverticulitis risk-- and in fact, the high fiber content in them may be protective against diverticulitis flare-ups.",
+      "links": [
+        {
+          "link_title": "Nut, Corn, and Popcorn Consumption and the Incidence of Diverticular Disease",
+          "link_url": "https://jamanetwork.com/journals/jama/article-abstract/1028647"
+        },
+        {
+          "link_title": "How can you help prevent a recurrence of diverticulitis?",
+          "link_url": "https://mospace.umsystem.edu/xmlui/handle/10355/3883"
+        }
+      ]
     }
   ]
 }
