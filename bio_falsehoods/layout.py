@@ -54,10 +54,8 @@ MODAL = html.Div(
             [
                 dbc.ModalHeader(dbc.ModalTitle("About")),
                 dbc.ModalBody(
-                    (
-                        "A list of common misconceptions and falsehoods about biology, "
-                        "compiled by Dr. Andrew J. Bonham"
-                    )
+                    "A list of common misconceptions and falsehoods about biology, "
+                    "compiled by Dr. Andrew J. Bonham"
                 ),
                 dbc.ModalFooter(
                     dbc.Button(
